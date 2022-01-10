@@ -1,0 +1,45 @@
+<div class="album py-5 bg-light">
+        <div class="container">
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Witamy w Harnasiowej wypożyczalni</h1>
+            <p class="lead text-muted">Specjalizujemy się w najlepszej filmografii, Harnaś to nasze 2. imie</p>
+            <h1>{{info}}</h1>
+            <h1>{{items}}</h1>
+            <p>
+              {{#if message}}
+              <a href="/logout" class="btn bg-danger my-2">Wyloguj w chuj</a>
+              {{else}}
+              <a href="/login" class="btn btn-primary my-2">Zaloguj</a>
+              <a href="/register" class="btn btn-secondary my-2">Zarejestruj się</a>
+              {{/if}}
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+<script> </script>
+{{#if logoutMessage}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  User sie wylogował naura
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+<div id="glowna" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+{{#each rows}}
+    <div class="card shadow-sm">
+    <img src={{this.img_link}}>
+    <div class="card-body"><h4 class="card-title">{{this.name}}</h4>
+    <p class="card-text">{{this.category}}</p>
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+            <a href="/addtocart/{{this.id}}" name="cart"+{{this.id}} class="btn btn-sm btn-outline-secondary">Do koszyka</a></div>
+        <small class="text-muted">Czas: {{this.time}} minut</small></div>
+        </div>
+</div>
+{{/each}}
+</div>
